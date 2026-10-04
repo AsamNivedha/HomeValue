@@ -118,6 +118,9 @@ def workspace(ds: state.LoadedDataset) -> None:
             "Something went wrong while building this page",
             "Your data is safe and nothing was changed. Try another page, reload the app, or load the dataset again.",
         )
+        if st.query_params.get("debug") == "1":
+            import traceback
+            st.code(traceback.format_exc())
     ui.legal_footer()
 
 
