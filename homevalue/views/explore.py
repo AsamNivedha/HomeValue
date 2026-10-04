@@ -157,7 +157,7 @@ def _explorer(ds: LoadedDataset) -> pd.DataFrame:
         with c7:
             st.radio("Records", ["All records", "Model-ready only", "Excluded from the model only"], key="ex_status", horizontal=True)
         with c8:
-            ui.button("Reset filters", key="ex_reset", on_click=_reset_filters, args=(a,))
+            ui.button("Reset filters", key="btn_ex_reset", on_click=_reset_filters, args=(a,))
 
     filtered = apply_filters(a, st.session_state)
     st.markdown(f"**Showing {fmt_int(len(filtered))} of {fmt_int(len(a))} properties**")
@@ -362,4 +362,4 @@ def render(ds: LoadedDataset) -> None:
     else:
         _market(ds, None)
     st.write("")
-    ui.button("Continue to Model", key="ex_next", type="primary", on_click=ui.goto, args=("Model",))
+    ui.button("Continue to Model", key="btn_ex_next", type="primary", on_click=ui.goto, args=("Model",))

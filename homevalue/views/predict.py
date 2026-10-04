@@ -172,7 +172,7 @@ def _history() -> None:
         ui.download("Download prediction history (CSV)", df.to_csv(index=False).encode("utf-8"),
                     "homevalue_prediction_history.csv", "text/csv", key="dl_history")
     with h2:
-        ui.button("Clear history", key="pr_clear", on_click=clear_history)
+        ui.button("Clear history", key="btn_pr_clear", on_click=clear_history)
 
 
 def render(ds: LoadedDataset) -> None:
@@ -190,4 +190,4 @@ def render(ds: LoadedDataset) -> None:
     _result(model)
     _history()
     st.write("")
-    ui.button("Continue to Insights", key="pr_next", type="primary", on_click=ui.goto, args=("Insights",))
+    ui.button("Continue to Insights", key="btn_pr_next", type="primary", on_click=ui.goto, args=("Insights",))
